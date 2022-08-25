@@ -18,4 +18,5 @@ public class CommunityController {
         return "board";
     }
 
+    /**/
 }
