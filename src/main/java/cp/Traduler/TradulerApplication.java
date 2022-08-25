@@ -9,5 +9,5 @@ public class TradulerApplication {
     public static void main(String[] args) {
         SpringApplication.run(TradulerApplication.class, args);
     }
-
+//
 }
