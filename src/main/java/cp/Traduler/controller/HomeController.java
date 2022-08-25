@@ -11,7 +11,4 @@ public class HomeController {
     public String main(){
         return "index";
     }
-
-    //hi
-
 }
