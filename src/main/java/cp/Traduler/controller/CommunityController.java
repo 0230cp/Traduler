@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommunityController {
 
     //커뮤니티 홈화면
-    @GetMapping("/")
-    public String community(){
-        return
-    }
+//    @GetMapping("/")
+//    public String community(){
+//        return
+//    }
 
 
 }
