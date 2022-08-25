@@ -10,5 +10,4 @@ public class TradulerApplication {
 		SpringApplication.run(TradulerApplication.class, args);
 	}
 
-	//master->master
 }
