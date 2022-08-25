@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/board/*")
+@RequestMapping("/board")
 
 public class CommunityController {
 
     //커뮤니티 홈화면
-//    @GetMapping("/")
-//    public String community(){
-//        return
-//    }
+    @GetMapping("")
+    public String community(){
+        return "board";
+    }
+
+    /**
+     * 왜 안되니
+     */
 
 
 }
