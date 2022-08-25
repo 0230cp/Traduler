@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/board/*")
+@RequestMapping("/board")
 
 public class CommunityController {
 
     //커뮤니티 홈화면
-    @GetMapping("/")
+    @GetMapping("")
     public String community(){
-        return
+        return "board";
     }
 
 
