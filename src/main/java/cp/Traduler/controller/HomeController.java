@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @AllArgsConstructor
-public class bootstrapController {
+public class HomeController {
     @GetMapping("/")
     public String main(){
         return "index";
     }
+
+    //hi
+
 }
