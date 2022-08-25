@@ -18,9 +18,4 @@ public class CommunityController {
         return "board";
     }
 
-    /**
-     * 왜 안되니
-     */
-
-
 }
