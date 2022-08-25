@@ -4,11 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TradulerApplication {
+public class HomeController {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TradulerApplication.class, args);
+		SpringApplication.run(HomeController.class, args);
 	}
 
-	//master->master
 }
