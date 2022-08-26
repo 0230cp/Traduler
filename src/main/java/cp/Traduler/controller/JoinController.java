@@ -23,7 +23,7 @@ public class JoinController {
     private final PasswordEncoder passwordEncoder;
     @GetMapping(value = "/join")
     public String join(Model model){
-        model.addAttribute("userJoinDto", new UserFormDto());
+        model.addAttribute("UserFormDto", new UserFormDto());
         return "join";
     }
 
