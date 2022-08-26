@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @AllArgsConstructor
 @RequestMapping("/plan")
 public class PlanController {
-    @GetMapping("/")
-    public String main(){
+    @GetMapping("")
+    public String plan(){
         return "plan";
     }
 }
