@@ -8,15 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/board")
+@RequestMapping("/community")
 
 public class CommunityController {
 
     //커뮤니티 홈화면
     @GetMapping("")
     public String community(){
-        return "board";
+        return "community";
     }
-
-    /**/
 }
