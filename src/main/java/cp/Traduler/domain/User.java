@@ -29,8 +29,8 @@ public class User {
     }
     public static User createUser(UserFormDto userFormDto, PasswordEncoder passwordEncoder){
         User user = User.builder()
-                .id(userFormDto.getId())
                 .name(userFormDto.getName())
+                .id(userFormDto.getId())
                 .pw(passwordEncoder.encode(userFormDto.getPw()))
                 .phone(userFormDto.getPhone())
                 .build();
