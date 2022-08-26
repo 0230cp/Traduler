@@ -21,13 +21,15 @@ public class User {
     @Column(name = "phone")
     private String phone;
     @Builder
-    public User(String name, String pw, String phone){
+    public User(String id, String name, String pw, String phone){
+        this.id = id;
         this.name = name;
         this.pw = pw;
         this.phone = phone;
     }
     public static User createUser(UserFormDto userFormDto, PasswordEncoder passwordEncoder){
         User user = User.builder()
+                .id(userFormDto.getId())
                 .name(userFormDto.getName())
                 .pw(passwordEncoder.encode(userFormDto.getPw()))
                 .phone(userFormDto.getPhone())
