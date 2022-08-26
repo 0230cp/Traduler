@@ -2,7 +2,7 @@
 <html lang="en">
 <!------ Include the above in your HEAD tag ---------->
 <head>
-  <link href="bootstrap/css/login.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
   <meta charset="utf-8">
   <title>Traduler - 로그인</title>
@@ -10,6 +10,23 @@
 
 </head>
 <body>
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <div class="logo">
+      <h1><a href="/">Traduler</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html"><img src="bootstrap/img/logo.png" alt="" class="img-fluid"></a>-->
+    </div>
+
+    <nav id="navbar" class="navbar">
+
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+  </div>
+</header>
+
 <div id="login">
   <h3 class="text-center text-white pt-5">Login form</h3>
   <div class="container">
@@ -27,11 +44,11 @@
               <input type="text" name="password" id="password" class="form-control">
             </div>
             <div class="form-group">
-              <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-              <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+
+              <input type="submit" name="submit" class="btn btn-info btn-md" value="로그인">
             </div>
             <div id="register-link" class="text-right">
-              <a href="#" class="text-info">Register here</a>
+              <a href="join" class="text-info">회원가입</a>
             </div>
           </form>
         </div>
@@ -39,5 +56,7 @@
     </div>
   </div>
 </div>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
