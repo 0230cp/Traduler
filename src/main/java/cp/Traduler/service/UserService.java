@@ -1,8 +1,11 @@
 package cp.Traduler.service;
 
 import cp.Traduler.domain.User;
+import cp.Traduler.domain.UserFormDto;
 import cp.Traduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,9 +16,14 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+   @Autowired
+   private UserRepository userRepository;
 
-    public User saveUser(User user){
+   @Autowired
+   private PasswordEncoder passwordEncoder;
+
+    public User saveUser(UserFormDto userFormDto){
+        User user=userFormDto.toEntity(passwordEncoder);
         validateDuplicateUser(user);
 
         return userRepository.save(user);

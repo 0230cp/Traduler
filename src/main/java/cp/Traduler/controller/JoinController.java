@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,11 +31,13 @@ public class JoinController {
     @PostMapping(value = "/join")
     public String join(@Valid UserFormDto userFormDto, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
+            System.out.println(userFormDto.getId());
             return "join";
         }
         try{
-            User user = User.createUser(userFormDto, passwordEncoder);
-            userService.saveUser(user);
+            System.out.println(userFormDto.getId());
+            System.out.println(userFormDto.getPw());
+            userService.saveUser(userFormDto);
         }catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
             return "join";
