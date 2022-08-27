@@ -26,24 +26,18 @@ public class JoinController {
     }
 
     @PostMapping(value = "/join")
-    public String join(@Valid UserFormDto userFormDto, BindingResult bindingResult, Model model){
+    public String join(@Valid UserFormDto userFormDto,BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
-            System.out.println(userFormDto.getId());
             return "join";
         }
         try{
-            System.out.println(userFormDto.getId());
-            System.out.println(userFormDto.getPw());
-            System.out.println(userFormDto.getName());
-            System.out.println(userFormDto.getPhone());
-            System.out.println(model.toString());
             userService.saveUser(userFormDto);
         }catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
+            model.addAttribute("UserFormDto", new UserFormDto()); //join 불러오기 에러 수정
+            System.out.println("e = " + e.getMessage());
             return "join";
         }
         return "redirect:/";
     }
-
-
 }
