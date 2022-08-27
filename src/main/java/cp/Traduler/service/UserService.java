@@ -23,8 +23,9 @@ public class UserService {
 
     private void validateDuplicateUser(User user) {
     Optional<User> findUser = userRepository.findById(user.getId());
-    if(findUser != null){
-        throw new IllegalStateException("이미 가입된 회원입니다.");
+        findUser.ifPresent(m->{
+            throw new IllegalStateException("이미 가입된 회원입니다.");
+        });
     }
-    }
+
 }
