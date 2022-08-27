@@ -1,15 +1,13 @@
 package cp.Traduler.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
+@Setter //이거때문에 10시간 날림. Setter 안말들면 submit할때 데이터 안들어옴 fck
 public class UserFormDto {
     private String name;
     private String id;

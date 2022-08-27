@@ -29,8 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http// 세션을 사용하지 않고 JWT 토큰을 활용하여 진행, csrf토큰검사를 비활성화
-                .authorizeRequests() // 인증절차에 대한 설정을 진행
+        http
+                .csrf().disable();// 세션을 사용하지 않고 JWT 토큰을 활용하여 진행, csrf토큰검사를 비활성화
+                http.authorizeRequests() // 인증절차에 대한 설정을 진행
                 .antMatchers( "/","/join/**", "/login/**", "/recommend/**").permitAll() // 설정된 url은 인증되지 않더라도 누구든 접근 가능
                 .anyRequest().authenticated()// 위 페이지 외 인증이 되어야 접근가능(ROLE에 상관없이)
                 .and()
