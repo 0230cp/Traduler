@@ -38,7 +38,8 @@ public class JoinController {
             model.addAttribute("UserFormDto",new UserFormDto());
             return "join";
         }
-        return "redirect:/";
+        model.addAttribute("success", "회원가입에 성공했습니다.");
+        return "index";
     }
 
 
