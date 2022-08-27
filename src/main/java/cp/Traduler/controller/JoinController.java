@@ -25,8 +25,9 @@ public class JoinController {
         return "join";
     }
 
+
     @PostMapping(value = "/join")
-    public String join(@Valid UserFormDto userFormDto,BindingResult bindingResult, Model model){
+    public String join(@Valid  UserFormDto userFormDto, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             return "join";
         }
@@ -34,10 +35,11 @@ public class JoinController {
             userService.saveUser(userFormDto);
         }catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
-            model.addAttribute("UserFormDto", new UserFormDto()); //join 불러오기 에러 수정
-            System.out.println("e = " + e.getMessage());
+            model.addAttribute("UserFormDto",new UserFormDto());
             return "join";
         }
         return "redirect:/";
     }
+
+
 }
