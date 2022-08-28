@@ -1,23 +1,22 @@
 package cp.Traduler.config;
 
+import cp.Traduler.handler.LoginFailHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
+    @Autowired
+    LoginFailHandler loginFailHandler;
     @Bean // 패스워드 암호화 관련 메소드
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -38,12 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/")
+                .failureHandler(new LoginFailHandler())
         ;
     }
-//    @Override
-//    public void configure(AuthenticationManagerBuilder auth) throws  Exception {
-//        auth.userDetailsService(userService) //유저 정보는 UserService에서
-//    }
+
+
 
     }
 

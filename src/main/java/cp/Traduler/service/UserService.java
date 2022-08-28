@@ -54,7 +54,7 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findById(id);
         if (user.isEmpty()) {
-            throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
+            throw new UsernameNotFoundException("아이디와 비밀번호를 확인하세요.");
         }
         User user1 = user.get();
         return new SecurityDetails(user1);
