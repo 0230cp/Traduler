@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class User {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
+//    내가 pk로 정한 값은 String형인데 기본키를 자동생성 하려 하니 오류가 남..
     @Column(name = "id")
     private String id;
     @Column(name = "name")
@@ -26,15 +27,6 @@ public class User {
         this.name = name;
         this.pw = pw;
         this.phone = phone;
-    }
-    public static User createUser(UserFormDto userFormDto, PasswordEncoder passwordEncoder){
-        User user = User.builder()
-                .name(userFormDto.getName())
-                .id(userFormDto.getId())
-                .pw(passwordEncoder.encode(userFormDto.getPw()))
-                .phone(userFormDto.getPhone())
-                .build();
-        return user;
     }
 
 }

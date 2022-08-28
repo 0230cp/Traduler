@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @AllArgsConstructor
 @Builder
 @Getter
-@Setter //이거때문에 10시간 날림. Setter 안말들면 submit할때 데이터 안들어옴 fck
+@Setter //이거때문에 10시간 날림. Setter 안말들면 submit할때 데이터 안들어옴
 public class UserFormDto {
     private String name;
     private String id;
