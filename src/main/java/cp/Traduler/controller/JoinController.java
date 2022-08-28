@@ -39,6 +39,10 @@ public class JoinController {
             model.addAttribute("UserFormDto", new UserFormDto());
             return "join";
         }
+        catch(Exception e){ //IllegalStateException이 발생하면 db에 저장되더라도, 롤백시킴
+            model.addAttribute("errorMessage", e.getMessage());
+            return "index";
+        }
 
         return "redirect:/";
     }

@@ -178,6 +178,18 @@
   <!-- Template Main JS File -->
   <script src="bootstrap/js/main.js"></script>
 
+  <th:block layout:fragment="script">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script> //이거 있어야 Uncaught ReferenceError 해결가능
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            var errorMessage = [[${errorMessage}]];
+            if(errorMessage != null){
+                alert(errorMessage);
+            }
+        });
+    </script>
+
+  </th:block>
 </body>
 
 </html>

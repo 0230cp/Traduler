@@ -22,20 +22,19 @@ public class UserService {
    @Autowired
    private PasswordEncoder passwordEncoder;
 
-    public User saveUser(UserFormDto userFormDto){
+    public void saveUser(UserFormDto userFormDto) throws Exception {
         User user=userFormDto.toEntity(passwordEncoder);
         validateDuplicateUser(user);
-
-        return userRepository.save(user);
     }
 
-    private void validateDuplicateUser(User user) {
+    private void validateDuplicateUser(User user) throws Exception {
     Optional<User> findUser = userRepository.findById(user.getId());
 
         findUser.ifPresent(m->{
             throw new IllegalStateException("이미 가입된 회원입니다.");
         });
-        throw new IllegalStateException("회원가입에 성공했습니다.");
+        userRepository.save(user);
+        throw new Exception("회원가입에 성공했습니다!");
     }
 
 }
