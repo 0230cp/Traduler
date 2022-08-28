@@ -178,19 +178,6 @@
   <!-- Template Main JS File -->
   <script src="bootstrap/js/main.js"></script>
 
-  <th:block layout:fragment="script">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script> //회원가입 성공시 알림
-    <script th:inline="javascript">
-        $(document).ready(function(){
-            var success = [[${success}]];
-            if(success != null){
-                alert(success);
-            }
-        });
-    </script>
-
-  </th:block>
-
 </body>
 
 </html>

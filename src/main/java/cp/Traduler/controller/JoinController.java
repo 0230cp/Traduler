@@ -19,27 +19,28 @@ public class JoinController {
 
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+
     @GetMapping(value = "/join")
-    public String join(Model model){
+    public String join(Model model) {
         model.addAttribute("UserFormDto", new UserFormDto());
         return "join";
     }
 
 
     @PostMapping(value = "/join")
-    public String join(@Valid  UserFormDto userFormDto, BindingResult bindingResult, Model model){
-        if(bindingResult.hasErrors()){
+    public String join(@Valid UserFormDto userFormDto, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
             return "join";
         }
-        try{
-            userService.saveUser(userFormDto);
-        }catch (IllegalStateException e){
+        try {
+           userService.saveUser(userFormDto);
+        } catch (IllegalStateException e) {
             model.addAttribute("errorMessage", e.getMessage());
-            model.addAttribute("UserFormDto",new UserFormDto());
+            model.addAttribute("UserFormDto", new UserFormDto());
             return "join";
         }
-        model.addAttribute("success", "회원가입에 성공했습니다.");
-        return "index";
+
+        return "redirect:/";
     }
 
 
