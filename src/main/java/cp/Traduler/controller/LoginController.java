@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @AllArgsConstructor
 public class LoginController {
     @GetMapping("/login")
-    public String main(){
+    public String login(){
         return "login";
     }
 

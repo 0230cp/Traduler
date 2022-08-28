@@ -29,8 +29,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http. csrf();
+        http.csrf().disable();
+        http.authorizeRequests()
+                .antMatchers("/plan").authenticated()
+                .anyRequest().permitAll()
+
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
+        ;
+    }
+//    @Override
+//    public void configure(AuthenticationManagerBuilder auth) throws  Exception {
+//        auth.userDetailsService(userService) //유저 정보는 UserService에서
+//    }
 
     }
 
-}
+

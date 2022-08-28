@@ -1,9 +1,16 @@
 package cp.Traduler.domain;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,12 +28,16 @@ public class User {
     private String pw;
     @Column(name = "phone")
     private String phone;
+
+    @Column(name = "role")
+    private Role role;
     @Builder
-    public User(String id, String name, String pw, String phone){
+    public User(String id, String name, String pw, String phone,  Role role){
         this.id = id;
         this.name = name;
         this.pw = pw;
         this.phone = phone;
+        this.role = role;
     }
 
 }

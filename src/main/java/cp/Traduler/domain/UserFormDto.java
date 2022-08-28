@@ -14,6 +14,7 @@ public class UserFormDto {
     private String pw;
     private String phone;
 
+
     public User toEntity(PasswordEncoder passwordEncoder){
         return User.builder()
                 .name(name)
