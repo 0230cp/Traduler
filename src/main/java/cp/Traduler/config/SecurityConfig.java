@@ -23,7 +23,7 @@ import java.io.IOException;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    LoginFailHandler loginFailHandler;
+    LoginFailHandler loginFailHandler; //로그인 핸들러 의존성 주입
     @Bean // 패스워드 암호화 관련 메소드
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

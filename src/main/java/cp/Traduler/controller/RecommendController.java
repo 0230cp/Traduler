@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/recommend")
 public class RecommendController {
-    @GetMapping("")
+    @GetMapping("/recommend")
     public String recommend(){
         return "recommend";
     }
