@@ -1,8 +1,7 @@
 package cp.Traduler.service;
 
-import cp.Traduler.domain.SecurityDetails;
-import cp.Traduler.domain.User;
-import cp.Traduler.domain.UserFormDto;
+import cp.Traduler.domain.*;
+import cp.Traduler.repository.BoardRepository;
 import cp.Traduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -22,9 +23,10 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private BoardRepository boardRepository;
 
     /**
      * 회원가입 서비스
@@ -59,4 +61,31 @@ public class UserService implements UserDetailsService {
         User user1 = user.get(); //user가 Optional<User> 형이라 이렇게 해줘야함. 왜그런진 아직도 이해못함.
         return new SecurityDetails(user1);
     }
+
+    /**
+     *  게시물 등록
+     */
+    @Transactional
+    public void savePost(BoardDto boardDto){
+        Board board = boardDto.toEntity();
+        boardRepository.save(board);
+    }
+
+    public List<BoardDto> getBoardList(){
+        List<BoardDto> boardDtoList = new ArrayList<>();
+        List<Board> boardList= boardRepository.findAll();
+        for(Board a: boardList){
+            BoardDto boardDto= BoardDto.builder()
+                    .id(a.getId())
+                    .title(a.getTitle())
+                    .userName(a.getUserName())
+                    .date(a.getDate())
+                    .contents(a.getContents())
+                    .build();
+            boardDtoList.add(boardDto);
+        }
+        return boardDtoList;
+    }
+
+
 }

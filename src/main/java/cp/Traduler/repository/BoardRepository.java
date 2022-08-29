@@ -1,9 +1,10 @@
 package cp.Traduler.repository;
 
-import cp.Traduler.domain.User;
+import cp.Traduler.domain.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
+public interface BoardRepository extends JpaRepository<Board, Long> {
+
 }

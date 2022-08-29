@@ -122,7 +122,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="text-center" th:each="post : ${postList}">
+        <tr class="text-center" th:each="post : ${BoardDto}">
           <th scope="row">
             <span th:text="${post.id}"></span>
           </th>
@@ -132,10 +132,10 @@
             </a>
           </td>
           <td>
-            <span th:text="${post.author}"></span>
+            <span th:text="${post.username}"></span>
           </td>
           <td>
-            <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+            <span th:text="${#temporals.format(post.date, 'yyyy-MM-dd HH:mm')}"></span>
           </td>
         </tr>
         </tbody>
