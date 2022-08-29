@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -91,102 +91,65 @@
 
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="blog-single.html" class="d-block mb-4">
-                <img src="bootstraps/img/img_1.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="post-text">
-                <span class="post-meta">December 13, 2019 &bullet; By <a href="#">Admin</a></span>
-                <h3><a href="#">Chrome now alerts you when someone steals your password</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-                <p><a href="#" class="readmore">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="blog-single.html" class="d-block mb-4">
-                <img src="bootstrap/img/img_2.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="post-text">
-                <span class="post-meta">December 13, 2019 &bullet; By <a href="#">Admin</a></span>
-                <h3><a href="#">Chrome now alerts you when someone steals your password</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-                <p><a href="#" class="readmore">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="blog-single.html" class="d-block mb-4">
-                <img src="bootstrap/img/img_3.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="post-text">
-                <span class="post-meta">December 13, 2019 &bullet; By <a href="#">Admin</a></span>
-                <h3><a href="#">Chrome now alerts you when someone steals your password</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-                <p><a href="#" class="readmore">Read more</a></p>
-              </div>
-            </div>
-          </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>자유 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>비밀 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>익명 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>여행 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>유머 게시판</strong>
+        </a>
+      </div>
+    </div>
 
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="blog-single.html" class="d-block mb-4">
-                <img src="bootstrap/img/img_4.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="post-text">
-                <span class="post-meta">December 13, 2019 &bullet; By <a href="#">Admin</a></span>
-                <h3><a href="#">Chrome now alerts you when someone steals your password</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-                <p><a href="#" class="readmore">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="blog-single.html" class="d-block mb-4">
-                <img src="bootstrap/img/img_3.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="post-text">
-                <span class="post-meta">December 13, 2019 &bullet; By <a href="#">Admin</a></span>
-                <h3><a href="#">Chrome now alerts you when someone steals your password</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-                <p><a href="#" class="readmore">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="blog-single.html" class="d-block mb-4">
-                <img src="bootstrap/img/img_2.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="post-text">
-                <span class="post-meta">December 13, 2019 &bullet; By <a href="#">Admin</a></span>
-                <h3><a href="#">Chrome now alerts you when someone steals your password</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-                <p><a href="#" class="readmore">Read more</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="col-12 text-center">
-            <span class="p-3 active text-primary">1</span>
-            <a href="#" class="p-3">2</a>
-            <a href="#" class="p-3">3</a>
-            <a href="#" class="p-3">4</a>
-          </div>
+    <div class="container">
+      <table class="table">
+        <thead class="thead-light">
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+          <th scope="col">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" th:each="post : ${postList}">
+          <th scope="row">
+            <span th:text="${post.id}"></span>
+          </th>
+          <td>
+            <a th:href="@{'/post/' + ${post.id}}">
+              <span th:text="${post.title}"></span>
+            </a>
+          </td>
+          <td>
+            <span th:text="${post.author}"></span>
+          </td>
+          <td>
+            <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-auto mr-auto"></div>
+        <div class="col-auto">
+          <a class="btn btn-primary" th:href="@{/community/post}" role="button">글쓰기</a>
         </div>
       </div>
+    </div>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    </section>
 
     <!-- ======= CTA Section ======= -->
     <section class="section cta-section">

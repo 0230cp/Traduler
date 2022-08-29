@@ -17,4 +17,7 @@ public class CommunityController {
     public String community(){
         return "community";
     }
+
+    @GetMapping("/post")
+    public String Post(){return "post";}
 }
