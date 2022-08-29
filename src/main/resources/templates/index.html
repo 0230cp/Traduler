@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
 
 <head>
   <meta charset="utf-8">
@@ -82,8 +84,16 @@
           <div class="row">
             <div class="col-lg-8 text-center text-lg-start">
               <h1 data-aos="fade-right">Travel With Traduler</h1>
-              <p class="mb-5" data-aos="fade-right" data-aos-delay="100">당신의 여정을 계획하고 공유하세요</p>
-              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="login" class="btn btn-outline-white">로그인</a></p>
+              <div sec:authorize ="isAnonymous()">
+                <p class="mb-5" data-aos="fade-right" data-aos-delay="100">당신의 여정을 계획하고 공유하세요</p>
+                <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="login" class="btn btn-outline-white">로그인</a></p>
+              </div>
+              <div sec:authorize ="isAuthenticated()">
+                <p class="mb-5" data-aos="fade-right" data-aos-delay="100"><span sec:authentication="name"></span>님! 즐거운 여행 되세요 :) </p>
+                <form action="/logout" method="POST">
+                  <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><button type="submit" class="btn btn-outline-white">로그아웃</button></p>
+                </form>
+              </div>
             </div>
             <div class="col-lg-4 iphone-wrap">
               <img src="bootstrap/img/plane.png" alt="Image" class="phone-1" data-aos="fade-right">
