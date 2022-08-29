@@ -3,7 +3,13 @@
     <!-- jQuery --><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>board</title>
-    <script>	$(document).on('click', '#btnSave', function(e){		e.preventDefault();				$("#form").submit();	});		$(document).on('click', '#btnList', function(e){		e.preventDefault();				location.href="${pageContext.request.contextPath}/board/getBoardList";	});</script>
+<!--    <script>	$(document).on('click', '#btnSave', function(e){-->
+<!--    		e.preventDefault();-->
+<!--    						$("#form").submit();	});-->
+<!--    								$(document).on('click', '#btnList', function(e){-->
+<!--    										e.preventDefault();-->
+<!--    														location.href="${pageContext.request.contextPath}/board/getBoardList";	});-->
+<!--</script>-->
     <style>body {  padding-top: 70px;  padding-bottom: 30px;}</style>
 </head>
 <body>
@@ -40,10 +46,10 @@
                 <label for="contents">내용</label>
                 <textarea class="form-control" rows="5" name="contents" id="contents" placeholder="내용을 입력해 주세요" ></textarea>
             </div>
-        </form>
-        <div >
             <button type="submit" class="btn btn-sm btn-primary" id="btnSave">저장</button>
             <button type="button" class="btn btn-sm btn-primary" id="btnList" href="${/community}">목록</button>
+        </form>
+        <div >
         </div>
     </div>
 </article>

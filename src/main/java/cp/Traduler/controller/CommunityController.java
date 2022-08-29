@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,11 +19,12 @@ public class CommunityController {
 
     private UserService userService;
     //커뮤니티 홈화면
-    @GetMapping("/")
+    @GetMapping("")
     public String community(Model model){
-        List<BoardDto> boardDtoList=new ArrayList<>();
-        boardDtoList = userService.getBoardList();
+        System.out.println("되니? = ");
+        List<BoardDto> boardDtoList=userService.getBoardList();
         model.addAttribute("BoardDto", boardDtoList);
+        System.out.println(" 이제는? "  );
         return "community";
     }
 
