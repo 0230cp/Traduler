@@ -56,7 +56,7 @@ public class UserService implements UserDetailsService {
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("아이디와 비밀번호를 확인하세요.");
         }
-        User user1 = user.get();
+        User user1 = user.get(); //user가 Optional<User> 형이라 이렇게 해줘야함. 왜그런진 아직도 이해못함.
         return new SecurityDetails(user1);
     }
 }
