@@ -93,4 +93,17 @@ public class UserService implements UserDetailsService {
     }
 
 
+    public BoardDto findBoard(Long id) {
+        Optional<Board> findBoard = boardRepository.findById(id);
+        Board board=findBoard.get();
+        BoardDto boardDto = BoardDto.builder()
+                .id(board.getId())
+                .title(board.getTitle())
+                .contents(board.getContents())
+                .userName(board.getUserName())
+                .date(board.getDate())
+                .build()
+                ;
+        return boardDto;
+    }
 }

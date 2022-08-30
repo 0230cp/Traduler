@@ -6,9 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -44,5 +42,14 @@ public class CommunityController {
         }
         userService.savePost(boardDto);
         return "redirect:/community";
+    }
+
+    @GetMapping("/{id}")
+    public String boardDetail(@PathVariable("id") Long id, Model model){
+        System.out.println("들어왓니");
+        BoardDto boardDto =userService.findBoard(id);
+        System.out.println("boardDto.getTitle() = " + boardDto.getTitle());
+        model.addAttribute("boardDto", boardDto);
+        return "test";
     }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"><head><meta charset="UTF-8">
+    <!-- jQuery --><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS --><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>board</title>
+    <!--    <script>	$(document).on('click', '#btnSave', function(e){-->
+    <!--    		e.preventDefault();-->
+    <!--    						$("#form").submit();	});-->
+    <!--    								$(document).on('click', '#btnList', function(e){-->
+    <!--    										e.preventDefault();-->
+    <!--    														location.href="${pageContext.request.contextPath}/board/getBoardList";	});-->
+    <!--</script>-->
+    <style>body {  padding-top: 70px;  padding-bottom: 30px;}</style>
+</head>
+<body>
+
+<div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+    <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>자유 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>비밀 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>익명 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>여행 게시판</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>유머 게시판</strong>
+        </a>
+    </div>
+</div>
+
+<article>
+    <div class="container" role="main">
+        <h2>게시물 상세</h2>
+            <div class="mb-3">
+                <label for="board.title">제목</label>
+                <input id = "board.title" type = "text" class = "form-control"
+                th:value = "${boardDto?.title}">
+            </div>
+            <div class="mb-3">
+                <label for="board.contents">내용</label>
+<!--                <textarea class="form-control" rows="5" name="contents" id="contents" placeholder="" ></textarea>-->
+                <input id = "board.contents" type = "text" class = "form-control"
+                       th:value = "${boardDto?.contents}">
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary" id="btnSave">삭제</button>
+            <a class="btn btn-sm btn-primary" id="btnList" href="/community">목록</a>
+        </form>
+        <div >
+        </div>
+    </div>
+</article>
+<th:block layout:fragment="script">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            var errorMessage = [[${errorMessage}]];
+            if(errorMessage != null){
+                alert(errorMessage);
+            }
+        });
+    </script>
+
+</th:block>
+</body>
+</html>
