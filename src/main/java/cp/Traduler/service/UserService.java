@@ -5,6 +5,8 @@ import cp.Traduler.repository.BoardRepository;
 import cp.Traduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -67,6 +69,9 @@ public class UserService implements UserDetailsService {
      */
     @Transactional
     public void savePost(BoardDto boardDto){
+        Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+        String username=authentication.getName();
+        boardDto.setUserName(username);
         Board board = boardDto.toEntity();
         boardRepository.save(board);
     }

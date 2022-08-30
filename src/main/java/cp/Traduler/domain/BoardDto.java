@@ -10,17 +10,18 @@ import java.time.LocalDateTime;
 @Setter
 public class BoardDto {
 
-    private Long id;
+    private Long id; //글 번호
 
-    private String userName;
+    private String userName; //아이디
 
-    private String title;
+    private String title; //글 제목
 
-    private String contents;
+    private String contents; //글 내용
 
-    private LocalDateTime date;
+    private LocalDateTime date; //작성 날짜
 
     public Board toEntity(){
+
         return Board.builder()
                 .id(id)
                 .userName(userName)
