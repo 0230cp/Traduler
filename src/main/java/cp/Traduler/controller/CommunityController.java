@@ -35,7 +35,6 @@ public class CommunityController {
 
     @PostMapping("/post")
     public String Write(BoardDto boardDto){
-        System.out.println("title :"+boardDto.getTitle());
         userService.savePost(boardDto);
         return "redirect:/community";
     }
