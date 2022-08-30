@@ -2,6 +2,7 @@ package cp.Traduler.domain;
 
 import lombok.*;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,6 +15,7 @@ public class BoardDto {
 
     private String userName; //아이디
 
+    @NotEmpty
     private String title; //글 제목
 
     private String contents; //글 내용

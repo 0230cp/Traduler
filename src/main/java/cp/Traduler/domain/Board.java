@@ -26,7 +26,7 @@ public class Board {
     @Column(name = "username")
     private String userName;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
     @Column(name = "contents")
