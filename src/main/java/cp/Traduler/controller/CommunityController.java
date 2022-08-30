@@ -6,7 +6,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -37,7 +40,6 @@ public class CommunityController {
     public String Write(@Valid BoardDto boardDto, BindingResult bindingResult, Model model){
         if (bindingResult.hasErrors()) {
             model.addAttribute("errorMessage", "게시물 제목을 입력하세요");
-            System.out.println(" com "  );
             return "post";
         }
         userService.savePost(boardDto);
@@ -46,10 +48,20 @@ public class CommunityController {
 
     @GetMapping("/{id}")
     public String boardDetail(@PathVariable("id") Long id, Model model){
-        System.out.println("들어왓니");
         BoardDto boardDto =userService.findBoard(id);
-        System.out.println("boardDto.getTitle() = " + boardDto.getTitle());
         model.addAttribute("boardDto", boardDto);
-        return "test";
+        return "boardDetail";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String boardDelete(@PathVariable("id")Long id, Model model) {
+        try {
+           userService.deletePost(id);
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "boardDetail";
+        }
+
+        return "redirect:/community";
     }
 }

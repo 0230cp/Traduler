@@ -39,19 +39,19 @@
         <h2>게시물 상세</h2>
             <div class="mb-3">
                 <label for="board.title">제목</label>
-                <input id = "board.title" type = "text" class = "form-control"
-                th:value = "${boardDto?.title}">
+                <input id = "board.title"  type = "text" class = "form-control"
+                th:value = "${boardDto?.title}" disabled>
             </div>
             <div class="mb-3">
                 <label for="board.contents">내용</label>
 <!--                <textarea class="form-control" rows="5" name="contents" id="contents" placeholder="" ></textarea>-->
-                <input id = "board.contents" type = "text" class = "form-control"
+                <input id = "board.contents" disabled type = "text" class = "form-control"
                        th:value = "${boardDto?.contents}">
             </div>
-            <button type="submit" class="btn btn-sm btn-primary" id="btnSave">삭제</button>
+            <a type="button" class="btn btn-sm btn-primary" id="btnSave" th:href="@{'/community/delete/' + ${boardDto?.id}}">삭제</a>
             <a class="btn btn-sm btn-primary" id="btnList" href="/community">목록</a>
         </form>
-        <div >
+        <div>
         </div>
     </div>
 </article>
@@ -62,6 +62,7 @@
             var errorMessage = [[${errorMessage}]];
             if(errorMessage != null){
                 alert(errorMessage);
+                location.href="/community";
             }
         });
     </script>

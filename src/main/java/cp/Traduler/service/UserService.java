@@ -106,4 +106,20 @@ public class UserService implements UserDetailsService {
                 ;
         return boardDto;
     }
+
+    public void deletePost(Long id) throws Exception {
+        Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+        String username=authentication.getName();
+
+        Optional<Board> findBoard=boardRepository.findById(id);
+        Board board=findBoard.get();
+
+        if(username.equals(board.getUserName())){
+            boardRepository.delete(board);
+        }
+        else{
+            throw new Exception("삭제 권한이 없습니다.");
+        }
+
+    }
 }
