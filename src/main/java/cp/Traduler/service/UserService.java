@@ -2,6 +2,7 @@ package cp.Traduler.service;
 
 import cp.Traduler.domain.*;
 import cp.Traduler.repository.BoardRepository;
+import cp.Traduler.repository.PlanRepository;
 import cp.Traduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class UserService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private BoardRepository boardRepository;
+    @Autowired
+    private PlanRepository planRepository;
 
     /**
      * 회원가입 서비스
@@ -121,5 +124,43 @@ public class UserService implements UserDetailsService {
             throw new Exception("삭제 권한이 없습니다.");
         }
 
+    }
+
+    /**
+     *  나만의 여정 서비스
+     */
+
+    public void savePlan(PlanDto planDto){
+        Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+        String userName =authentication.getName();
+        planDto.setUserName(userName);
+        Plan plan = planDto.toEntity();
+        planRepository.save(plan);
+    }
+
+
+    public List<PlanDto> getPlanList() {
+        Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+        String userName =authentication.getName();
+        List<PlanDto> planDtoList = new ArrayList<>();
+        List<Plan> PlanList= planRepository.findAllByUserName(userName);
+        for(Plan a: PlanList){
+            PlanDto planDto= PlanDto.builder()
+                    .id(a.getId())
+                    .StartDate(a.getStartDate())
+                    .EndDate(a.getEndDate())
+                    .place(a.getPlace())
+                    .memo(a.getMemo())
+                    .userName(a.getUserName())
+                    .build();
+            planDtoList.add(planDto);
+        }
+        return planDtoList;
+    }
+
+    public void deletePlan(Long id) throws Exception {
+        Optional<Plan> findPlan=planRepository.findById(id);
+        Plan plan = findPlan.get();
+        planRepository.delete(plan);
     }
 }

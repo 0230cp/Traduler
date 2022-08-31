@@ -15,7 +15,7 @@ public class BoardDto {
 
     private String userName; //아이디
 
-    @NotEmpty
+    @NotEmpty  //
     private String title; //글 제목
 
     private String contents; //글 내용

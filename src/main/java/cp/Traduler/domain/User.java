@@ -1,16 +1,13 @@
 package cp.Traduler.domain;
 
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Getter
@@ -21,6 +18,7 @@ public class User {
 //    @GeneratedValue(strategy = GenerationType.AUTO)
 //    내가 pk로 정한 값은 String형인데 기본키를 자동생성 하려 하니 오류가 남..
     @Column(name = "id")
+
     private String id;
     @Column(name = "name")
     private String name;

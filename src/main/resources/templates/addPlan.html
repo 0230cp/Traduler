@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8">
@@ -91,6 +91,59 @@
       </div>
 
     </section>
+
+    <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+      <div class="container d-flex justify-content-start">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>일정 추가</strong>
+        </a>
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>일정 보기</strong>
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <table class="table">
+        <thead class="thead-light">
+        <tr class="text-center">
+          <th scope="col">일정시작일자</th>
+          <th scope="col">일정종료일자</th>
+          <th scope="col">여행지</th>
+          <th scope="col">메모</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center"> <!--th:each="post : ${BoardDto}"-->
+          <th scope="row">
+            <input type="datetime-local" name="dateStart" id="dateStart" class="form-control">
+          </th>
+          <td>
+<!--            <a th:href="@{'/community/' + ${post.id}}">-->
+<!--              <span th:text="${post.title}"></span>-->
+            <input type="datetime-local" name="dateEnd" id="dateEnd" class="form-control">
+          </td>
+          <td>
+<!--            <span th:text="${#temporals.format(post.date, 'yyyy-MM-dd HH:mm')}"></span>-->
+            <input type="text" name="place" id="place" class="form-control">
+          </td>
+          <td>
+            <input type="text" name="memo" id="memo" class="form-control">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-auto mr-auto" ></div>
+        <div class="col-auto" align="right">
+          <a class="btn btn-primary" th:href="@{/community/post}" role="button">추가</a>
+        </div>
+      </div>
+    </div>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <div class="col-md-6 mb-3"></div>
 
     <!-- ======= CTA Section ======= -->
     <section class="section cta-section">
