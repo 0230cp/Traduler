@@ -147,8 +147,8 @@ public class UserService implements UserDetailsService {
         for(Plan a: PlanList){
             PlanDto planDto= PlanDto.builder()
                     .id(a.getId())
-                    .startDate(a.getStartDate())
-                    .endDate(a.getEndDate())
+                    .startDate(a.getStartDate().toString())
+                    .endDate(a.getEndDate().toString())
                     .place(a.getPlace())
                     .memo(a.getMemo())
                     .userName(a.getUserName())

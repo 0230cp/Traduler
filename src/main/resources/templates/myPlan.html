@@ -116,11 +116,15 @@
       </thead>
       <tbody>
       <tr class="text-center" th:each="plan : ${PlanDto}">
-        <th scope="row">
-          <span th:text="${#temporals.format(plan.StartDate, 'yyyy-MM-dd HH:mm')}"></span>
-        </th>
+<!--        <th scope="row">-->
         <td>
-            <span th:text="${#temporals.format(plan.EndDate, 'yyyy-MM-dd HH:mm')}"></span>
+<!--          <span th:text="${#temporals.format(plan.startDate, 'yyyy-MM-dd HH:mm')}"></span>-->
+          <span th:text="${plan.startDate}"></span>
+<!--        </th>-->
+        </td>
+        <td>
+<!--            <span th:text="${#temporals.format(plan.endDate, 'yyyy-MM-dd HH:mm')}"></span>-->
+          <span th:text="${plan.endDate}"></span>
           </a>
         </td>
         <td>

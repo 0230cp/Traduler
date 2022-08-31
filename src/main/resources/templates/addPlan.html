@@ -104,6 +104,7 @@
     </div>
 
     <div class="container">
+      <form th:object="${PlanDto}" name="form" id="form" role="form" method="post" action="/plan/add">
       <table class="table">
         <thead class="thead-light">
         <tr class="text-center">
@@ -116,12 +117,12 @@
         <tbody>
         <tr class="text-center"> <!--th:each="post : ${BoardDto}"-->
           <th scope="row">
-            <input type="datetime-local" name="dateStart" id="dateStart" class="form-control">
+            <input type="datetime-local" name="startDate" id="startDate" class="form-control">
           </th>
           <td>
 <!--            <a th:href="@{'/community/' + ${post.id}}">-->
 <!--              <span th:text="${post.title}"></span>-->
-            <input type="datetime-local" name="dateEnd" id="dateEnd" class="form-control">
+            <input type="datetime-local" name="endDate" id="endDate" class="form-control">
           </td>
           <td>
 <!--            <span th:text="${#temporals.format(post.date, 'yyyy-MM-dd HH:mm')}"></span>-->
@@ -136,9 +137,10 @@
       <div class="row">
         <div class="col-auto mr-auto" ></div>
         <div class="col-auto" align="right">
-          <a class="btn btn-primary" th:href="@{/community/post}" role="button">추가</a>
+          <button type="submit" class="btn btn-primary" role="button">추가</button>
         </div>
       </div>
+      </form>
     </div>
     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
