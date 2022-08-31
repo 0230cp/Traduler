@@ -6,10 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -23,9 +21,10 @@ public class CommunityController {
     private UserService userService;
     //커뮤니티 홈화면
     @GetMapping("")
-    public String community(Model model){
+    public String community(@RequestParam(value="errorMessage",required = false) String errorMessage,Model model){
         List<BoardDto> boardDtoList=userService.getBoardList();
         model.addAttribute("BoardDto", boardDtoList);
+        model.addAttribute("errorMessage",errorMessage);
         return "community";
     }
 
@@ -54,14 +53,16 @@ public class CommunityController {
     }
 
     @GetMapping("/delete/{id}")
-    public String boardDelete(@PathVariable("id")Long id, Model model) {
+    public String boardDelete(@PathVariable("id")Long id, RedirectAttributes redirect) {
         try {
-           userService.deletePost(id);
+            userService.deletePost(id);
         } catch (Exception e) {
-            model.addAttribute("errorMessage", e.getMessage());
-            return "boardDetail";
+            redirect.addAttribute("errorMessage", e.getMessage());
         }
-
         return "redirect:/community";
+
+
     }
+
+
 }
