@@ -143,12 +143,12 @@ public class UserService implements UserDetailsService {
         Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
         String userName =authentication.getName();
         List<PlanDto> planDtoList = new ArrayList<>();
-        List<Plan> PlanList= planRepository.findAllByUserName(userName);
+        List<Plan> PlanList= planRepository.findAllByUserNameOrderByStartDateAsc(userName);
         for(Plan a: PlanList){
             PlanDto planDto= PlanDto.builder()
                     .id(a.getId())
-                    .StartDate(a.getStartDate())
-                    .EndDate(a.getEndDate())
+                    .startDate(a.getStartDate())
+                    .endDate(a.getEndDate())
                     .place(a.getPlace())
                     .memo(a.getMemo())
                     .userName(a.getUserName())

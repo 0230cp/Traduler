@@ -23,9 +23,9 @@ public class Plan {
     @Column(name = "id")
     private Long id;
     @Column(name = "startdate")
-    private LocalDateTime StartDate;
+    private LocalDateTime startDate;
     @Column(name = "enddate")
-    private LocalDateTime EndDate;
+    private LocalDateTime endDate;
     @Column(name ="place")
     private String place;
     @Column(name = "memo")

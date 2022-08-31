@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 public class PlanDto {
     private Long id;
     @NotEmpty
-    private LocalDateTime StartDate;
+    private LocalDateTime startDate;
     @NotEmpty
-    private LocalDateTime EndDate;
+    private LocalDateTime endDate;
     @NotEmpty
     private String place;
     private String memo;
@@ -23,8 +23,8 @@ public class PlanDto {
 
     public Plan toEntity(){
         return Plan.builder()
-                .StartDate(StartDate)
-                .EndDate(EndDate)
+                .startDate(startDate)
+                .endDate(endDate)
                 .id(id)
                 .place(place)
                 .memo(memo)
