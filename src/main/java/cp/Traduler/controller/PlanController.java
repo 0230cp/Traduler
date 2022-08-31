@@ -34,7 +34,7 @@ public class PlanController {
     }
 
     @GetMapping("/add")
-    public String ShowPlan(){
+    public String addPlan(Model model){
             return "addPlan";
     }
 
