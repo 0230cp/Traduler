@@ -17,7 +17,7 @@
 
 ## 프로젝트 소개
 
-Spring Boot, Spring Data JPA, Thymeleaf, Bootstrap 등의 스프링 프레임워크와 관련 기술들과, MVC패턴의 공부를 목적으로, <br>
+Spring Boot, Spring Data JPA, Spring Security, Thymeleaf, Bootstrap 등의 스프링 프레임워크와 관련 기술들과, MVC패턴의 공부를 목적으로, <br>
 약 7일에 거쳐 여행계획짜기 웹 어플리케이션 "Traduler(Travel+Scheduler)"을 개발하였다.<br>
 이 어플리케이션은 회원가입, 로그인, 여행계획짜기, 여행지 추천, 커뮤니티 등의 기능을 포함한다.<br>
 배포나 기능에 초점을 맞추기 보단, 간단한 CRUD 위주의 Spring 기초와 서버 동작의 이해를 목적으로 한 프로젝트이다. 
