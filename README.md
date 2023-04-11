@@ -47,6 +47,7 @@ Spring Boot, Spring Data JPA, Spring Security, Thymeleaf, Bootstrap 등의 스�
 | 여행지 추천 |  커뮤니티  |  
 | <img width="329" src="https://user-images.githubusercontent.com/102651155/222075636-1ea19a75-ed3b-42f3-8cd0-5fab6e1ff745.png"/>   |  <img width="329" src="https://user-images.githubusercontent.com/102651155/222075780-63d80b21-994d-4320-bf66-c25711c30f06.png"/>     |
 
+### 시연 영상(아래 이미지 클릭)
 [![시연 영상](https://user-images.githubusercontent.com/102651155/222075233-59535efe-9a6e-4da6-aa89-eded31a34bef.png)](https://youtu.be/uWVnARoa5fc)
 
 ---
