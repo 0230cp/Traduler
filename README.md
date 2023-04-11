@@ -15,12 +15,15 @@
 | :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: 
 | 동국대학교 컴퓨터공학전공 3학년 | 전남대학교 컴퓨터정보통신공학과 3학년 
 
+#### 역할 분배 X ( 학습을 목표로 같은 공간에서 프론트와 백 구분없이 함께 진행)
+
 ## 프로젝트 소개
 
 Spring Boot, Spring Data JPA, Spring Security, Thymeleaf, Bootstrap 등의 스프링 프레임워크와 관련 기술들과, MVC패턴의 공부를 목적으로, <br>
 약 7일에 거쳐 여행계획짜기 웹 어플리케이션 "Traduler(Travel+Scheduler)"을 개발하였다.<br>
 이 어플리케이션은 회원가입, 로그인, 여행계획짜기, 여행지 추천, 커뮤니티 등의 기능을 포함한다.<br>
 배포나 기능에 초점을 맞추기 보단, 간단한 CRUD 위주의 Spring 기초와 서버 동작의 이해를 목적으로 한 프로젝트이다. 
+
 
 
 
@@ -43,6 +46,8 @@ Spring Boot, Spring Data JPA, Spring Security, Thymeleaf, Bootstrap 등의 스�
 |  <img width="329" src="https://user-images.githubusercontent.com/102651155/222075233-59535efe-9a6e-4da6-aa89-eded31a34bef.png"/> |  <img width="329" src="https://user-images.githubusercontent.com/102651155/222075420-89c3f97a-baa0-427b-ba09-266fb0ba5711.png"/>|  
 | 여행지 추천 |  커뮤니티  |  
 | <img width="329" src="https://user-images.githubusercontent.com/102651155/222075636-1ea19a75-ed3b-42f3-8cd0-5fab6e1ff745.png"/>   |  <img width="329" src="https://user-images.githubusercontent.com/102651155/222075780-63d80b21-994d-4320-bf66-c25711c30f06.png"/>     |
+
+<iframe width="666" height="416" src="https://www.youtube.com/embed/uWVnARoa5fc" title="Traduler" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 ## 주요 기능 📦
